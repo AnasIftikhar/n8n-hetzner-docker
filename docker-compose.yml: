@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  n8n:
+    build: .
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=n8n.leadoxify.online
+      - WEBHOOK_URL=https://n8n.leadoxify.online/
+      - N8N_PROTOCOL=https
+      - NODES_EXCLUDE=[]
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - n8n_videos:/data/videos
+volumes:
+  n8n_data:
+  n8n_videos:
